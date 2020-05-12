@@ -1,0 +1,40 @@
+
+{% extends 'polls/wgestion2.html' %}    
+
+{% block menuopciones %}
+
+<div class="card">
+    <div class="header">  Sección </div>
+    <div id="div2">
+            <p><a href="{%url 'polls:modelocontrato' modelo.id%}#inicio" >Contratos</a></p>          
+            <p><a href="{%url 'polls:modeloregistro' modelo.id%}#inicio" >Punto de Medición</a></p>                
+            <p><a href="{%url 'polls:modelomedicion' modelo.id%}#inicio" >Registros</a></p>    
+            <p><a href="{%url 'polls:modeloreparto' modelo.id%}#inicio" >Reparto</a></p>    
+            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+            </br></br></br></br></br></br></br></br>
+    </div>
+</div>
+
+
+
+{% endblock %}
+{% block modelomensaje %}
+{%if mmensaje%}
+</br>
+</br>
+<div style="height:500px;width:auto;border:1px solid #ccc;padding:30px;overflow:auto; opacity: 1.0;">
+    {% load static %}
+    <img src="{% static 'polls/verde6.png' %}" width=100% height=auto   >
+    <h2>{{mmensaje.titulo}}</h2>
+
+    <div class="MiLeft">
+
+        {%for cad in mmensaje.msg%}
+        <p>{{cad}}</p>
+        {%endfor%}
+       
+    </div>
+</div>
+
+{%endif%}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'polls/wcontratoeditar.html' %}    
+                                
+
+{% block contratomestabla %}
+<p> <a href="{%url 'polls:contratomesaccion' 'contratomesagregar' 0 %}#inicioe" >
+        <button style="border-radius:5px;font-size: 12px">Agregar información</button></a>        
+</p>        
+        
+<div id="div3">
+    <div id="scrollt">
+        <div style="overflow-x:auto;">
+        
+            <table>
+                <tr>    <th>Generador</th>  <th>Identificador</th>  <th>Fecha inicio</th>    <th>Fecha final</th> 
+                        <th>Pot.Fija HP (MW)</th>    <th>Pot.Var HP (MW)</th> 
+                        <th>Pot.Fija HFP (MW)</th>    <th>Pot.Var HFP (MW)</th> 
+                        <th>Acciones</th>  </tr>          
+                {% for conmes in codigos %} 
+                    <tr>  
+                          <td>{{ conmes.generador }}</td> 
+                          <td>{{ conmes.codid }}</td> 
+                          <td>{{ conmes.fechaini }}</td> 
+                          <td>{{ conmes.fechafin }}</td> 
+                          <td style="text-align:right">{{ conmes.fija }}</td>                          
+                          <td style="text-align:right">{{ conmes.variable }}</td>         
+                          <td style="text-align:right">{{ conmes.fijafp }}</td>                          
+                          <td style="text-align:right">{{ conmes.variablefp }}</td>                                   
+                          <td>
+                                <a href="{%url 'polls:contratomesaccion'  'contratomeseditar' conmes.id%}#inicioe" >
+                                    <button style="border-radius:5px;font-size: 10px">Editar</button>  </a>
+                                <a href="{%url 'polls:contratomesaccion'  'contratomesborrar' conmes.id%}#inicio" >
+                                    <button style="border-radius:5px;font-size: 10px">Borrar</button>  </a>
+                          </td>                                                                                      
+                    </tr>
+                {% endfor %}       
+            </table>
+        </div>
+    </div>
+
+
+    <div class="pagination">
+        {% for pag in paginas %}
+            {% if pag.activa %}
+                <a class="active" href="{%url 'polls:contratomestabla'   pag.id %}#inicio" >{{pag.id}}</a>
+            {% else %}   
+                <a href="{%url 'polls:contratomestabla'   pag.id %}#inicio" >{{pag.id}}</a>
+            {% endif %}
+        {% endfor %}       
+    </div>    
+</div> 
+
+
+
+{% endblock %} 
+  

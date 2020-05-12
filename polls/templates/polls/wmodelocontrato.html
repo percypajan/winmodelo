@@ -1,0 +1,38 @@
+{% extends 'polls/wmodelosmenu.html' %}    
+
+{% block modelocontrato %}
+
+  <div class="card">   
+    <div class="header"><div id="div3"> Contratos: {{modelo.descripcion}} </div> </div>	  
+  </div> 
+  </br>
+  <a href="{%url 'polls:modeloboton1'  'contratotabla' 'licitacion' 1 %}#inicio" >
+    <button class="button buttonazul"  id="btn1" name="btn1"> <span>Licitación</span></button>
+  </a>
+
+  <a href="{%url 'polls:modeloboton1'  'contratotabla' 'bilateral' 1 %}#inicio" >
+    <button class="button buttonnegro"  id="btn2" name="btn2"> <span>Bilaterales</span></button>
+  </a>
+
+  <a href="{%url 'polls:modeloboton1'  'contratotabla' 'otros' 1 %}#inicio" >
+    <button class="button buttonamarillo"  id="btn6" name="btn6"> <span>C.Libres</span></button>
+  </a>
+
+  <a href="{%url 'polls:modeloboton4'  'contratoeditar' 1%}#inicio" >
+    <button class="button buttonlila"  id="btn7" name="btn7"> <span>Potencias</span></button>
+  </a>
+
+  <button class="button buttonverde" id="btn4" name="btn4" ><span>Excel</span></button>
+  <button class="button buttonrojo" id="btn5" name="btn5" ><span>PDF</span></button>
+  
+  {% block contratotabla %}
+  {% endblock %}
+  {% block contratoeditar %}
+  {% endblock %}
+
+{% endblock %}
+
+       
+
+  
+

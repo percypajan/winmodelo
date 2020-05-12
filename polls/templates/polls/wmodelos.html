@@ -1,0 +1,29 @@
+
+{% extends 'polls/wgestion2.html' %}    
+
+{% block menumodelos %}
+
+    {% for mod in modelos %}     
+        {%if mod.visualizar%}   
+        <div class="card2">
+            {%if login.ok%}
+                <a href="{%url 'polls:modelomenu' mod.id%}#iniciom">    
+            {%else%}        
+                <a href="{%url 'polls:modelomenu' mod.id%}#iniciom" onclick="return false;">    
+            {%endif%}        
+            <div class="header2">{{mod.nombre}}</div>
+            <div id="div2">
+                <p>
+                    {{mod.descripcion}}</p>
+                <p>Cliente:{{mod.cliente}}</p>
+                <p>Creación:   {{mod.fecha}}</p>
+                
+            </div>
+            </a>
+        </div>
+        {%endif%}
+    {% endfor %}      
+
+
+
+{% endblock %}

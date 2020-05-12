@@ -1,0 +1,34 @@
+{% extends 'polls/wmodeloreparto.html' %}    
+
+{% block repartotabla %}
+
+<form action="{% url 'polls:repartocalculo' 'calculo' 1%}#inicio" method="POST" enctype="multipart/form-data">  
+    {% csrf_token %}   
+    </br>
+
+    Periodo: 
+    <select name="periodo2">
+        {% for pp in periodo %}
+            {%if pp.seleccionado %}
+                <option value="{{pp.per.id}}" selected> {{pp.per.descripcion}}  </option>
+            {% else %}    
+                <option value="{{pp.per.id}}"> {{pp.per.descripcion}}  </option>
+            {% endif %}
+        {% endfor %}
+    </select>     
+    <input type="submit" style="border-radius:5px;font-size: 14px" value="Determinar Reparto">    </br>
+</form>   
+
+    </br>
+    {%if mensaje%}
+    <div style="height:500px;width:auto;border:1px solid #ccc;overflow:auto;">
+        <div class="MiLeft">
+            {%for cad in mensaje%}
+            {{cad}}</br>
+            {%endfor%}
+        </div>
+    </div>
+    {%endif%}
+
+
+{% endblock %} 

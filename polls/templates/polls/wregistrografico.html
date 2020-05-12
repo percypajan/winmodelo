@@ -1,0 +1,104 @@
+{% extends 'polls/wmodelomedicion.html' %}    
+
+
+{% csrf_token %}  
+
+{% block codigoseleccion %}
+<div class="card">
+    <div class="header">Graficar </div></br>    
+    <form action="{% url 'polls:modeloboton3' 'registrografico' 1 %}#inicio" method="POST" enctype="multipart/form-data">  
+        {% csrf_token %}   
+
+        <input type="submit" style="border-radius:5px;font-size: 14px" value="Visualizar">    </br></br> 
+        Periodo: 
+        <select name="periodo2">
+            {% for pp in periodo %}
+                {%if pp.seleccionado %}
+                    <option value="{{pp.per.id}}" selected> {{pp.per.descripcion}}  </option>
+                {% else %}    
+                    <option value="{{pp.per.id}}"> {{pp.per.descripcion}}  </option>
+                {% endif %}
+            {% endfor %}
+        </select>              
+
+        </br>
+        Tipo:
+        <select name="tipo2">
+            {%for op in tipog%}
+                {%if op.seleccionado %}
+                    <option value={{op.id}} selected> {{op.opcion}} </option>
+                {%else%}
+                    <option value={{op.id}}> {{op.opcion}} </option>
+                {%endif%}
+            {%endfor%}
+        </select>
+        </br>
+
+        Medición:
+        <p4>
+            <div id="scrollt2">
+                <div id="div1">
+                    <table border=1 > 
+                        <thead>
+                            <tr  bgcolor="#E6E6FA" > <td>Ver</td>   <td>Codigo</td> </tr>
+                        </thead>      
+                        {% for cod in codigos %} 
+                        <tr>
+                            <td>
+                                {%if cod.seleccionado %}    
+                                    <label><input type="checkbox" name ="VerCod" checked="checked" value="{{cod.id}}"> </label>
+                                {%else%}
+                                    <label><input type="checkbox" name ="VerCod" value="{{cod.id}}"> </label>
+                                {%endif%}
+                            </td>                            
+                            <td>{{ cod.opcion }}</td>
+                        </tr>
+                        {% endfor %}                  
+                    </table>
+                </div>          
+            </div>    
+        </p4>              
+        Clientes Libres:
+        <p4>        
+            <div id="scrollt2">
+                <div id="div1">
+                    <table border=1 > 
+                        <thead>
+                            <tr  bgcolor="#E6E6FA" > <td>Ver</td>   <td>Codigo</td> </tr>
+                        </thead>      
+                        {% for lib in libres %} 
+                        <tr>
+                            <td>
+                                {%if lib.seleccionado %}    
+                                    <label><input type="checkbox" name ="VerLib" checked="checked" value="{{lib.id}}"> </label>
+                                {%else%}
+                                    <label><input type="checkbox" name ="VerLib" value="{{lib.id}}"> </label>
+                                {%endif%}
+                            </td>
+                            <td> {{ lib.opcion }} </td>
+                        </tr>
+                        {% endfor %}                  
+                    </table>
+                </div>            
+            </div>    
+        </p4>
+
+        </div>  
+    </form>    
+</div>  
+{% endblock %}	
+
+
+{% block registrografico %}
+   {% if data %}
+        
+
+        <div id="border1">
+            <img src="data:images/png;base64,{{data}}" alt="" height=auto, width=80%/>
+        </div>
+
+   {% endif %}
+{% endblock %} 
+
+
+    

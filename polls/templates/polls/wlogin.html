@@ -1,0 +1,14 @@
+
+{% extends 'polls/wgestion2.html' %}    
+
+{% block login %}
+<h2>Iniciar sesión</h2>
+
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button type="submit" name="ok">Login</button>
+    <button type="submit" name="cancel">Cancelar</button>    
+</form>
+
+{% endblock %}

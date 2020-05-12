@@ -1,0 +1,65 @@
+{% extends 'polls/wmodelomedicion.html' %}    
+
+
+
+{% block libretabla %}
+<p> {{opcion}}&nbsp&nbsp
+    <form action="{% url 'polls:modeloboton2' 'librecarga' 'codigos' 1 %}#inicio" method="post" enctype="multipart/form-data">      
+       
+        Periodo: 
+        <select name="periodo2">
+            {% for pp in periodo %}
+                {%if pp.seleccionado %}
+                    <option value="{{pp.per.id}}" selected> {{pp.per.descripcion}}  </option>
+                {% else %}    
+                    <option value="{{pp.per.id}}" > {{pp.per.descripcion}}  </option>
+                {%endif%}    
+            {% endfor %}
+        </select>
+        {% csrf_token %}  
+        <input type="submit" style="border-radius:5px;font-size: 12px"  value="Inspeccionar ..."> 
+
+        <label for="myfile">Archivo:</label>
+        <input type="file" id="cargaexcel" name="cargaexcel" >        
+        <select name="tipo2">
+            <option value="1" > Energía (KWh)  </option>
+            <option value="2" > Potencia (KW)  </option>            
+        </select>
+
+        {% csrf_token %}  
+        <input type="submit" style="border-radius:5px;font-size: 12px"  value="Cargar archivo"> 
+    </form>    
+</p>
+
+<div id="div3">
+    
+    <div id="scrollt"><div style="overflow-x:auto;">
+
+      <table>
+        <tr>    <th>Barra</th> <th>Código</th>    <th>Descripción</th> <th>Cliente</th> <th>Energía</th> <th>Potencia</th></tr>          
+        {% for cod in codigos %} 
+            <tr>  <td>{{ cod.barra }}</td> 
+                  <td>{{ cod.codigo }}</td>
+                  <td>{{ cod.descripcion }}</td> 
+                  <td>{{ cod.cliente }}</td> 
+                  <td> {% if cod.auxiliar1 %}  Si {% else %}No   {% endif %}</td>
+                  <td> {% if cod.auxiliar2 %}  Si {% else %}No   {% endif %}</td>
+            </tr>
+        {% endfor %}       
+      </table>
+
+    </div></div>
+
+    <div class="pagination">
+        {% for pag in paginas %}
+            {% if pag.activa %}
+                <a class="active" href="{%url 'polls:modeloboton2'  'librecarga' 'codigos' pag.id %}#inicio" >{{pag.id}}</a>
+            {% else %}   
+                <a href="{%url 'polls:modeloboton2'  'librecarga' 'codigos' pag.id %}#inicio" >{{pag.id}}</a>
+            {% endif %}
+        {% endfor %}       
+    </div>      
+</div>  
+
+{% endblock %} 
+  

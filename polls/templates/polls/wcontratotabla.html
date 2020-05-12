@@ -1,0 +1,60 @@
+{% extends 'polls/wmodelocontrato.html' %}    
+
+
+{% block contratotabla %}
+</br>
+
+<p>  {{opcion}}&nbsp&nbsp<a href="{%url 'polls:contratoaccion' 'contratoagregar' 0 %}#inicioe" >
+        <button style="border-radius:5px;font-size: 12px">Agregar contrato</button></a>       
+</p>   
+<div id="div3">
+    <div id="scrollt">
+        <div style="overflow-x:auto;">
+
+            <table>
+                <tr>    <th>Descripción</th> <th>Código</th>  <th>Area</th>   <th>Barra</th>    <th>Cliente</th>   
+                        <th style="text-align:center">Tipo</th>  <th>Fecha inicio</th>  <th>Fecha fin</th>  
+                        <th>Acciones</th>  </tr>          
+                {% for cod in codigos %} 
+                    <tr> 
+                          <td>{{ cod.descripcion }}</td> 
+                          <td>{{ cod.codigo }}</td> 
+                          <td>{{ cod.area.nombre }}</td> 
+                          <td>{{ cod.barra.nombre }}</td> 
+                          <td>{{ cod.cliente }}</td> 
+                          {% if cod.libre %}
+                                <td style="text-align:center">Merc.Libre</td>                                
+                          {%else%}      
+                                <td style="text-align:center">Regulado</td>                                
+                          {%endif%}
+                          <td>{{ cod.fechaini }}</td> 
+                          <td>{{ cod.fechafin }}</td> 
+
+
+                          <td>
+                            <a href="{%url 'polls:contratoaccion'  'contratoeditar' cod.id%}#inicioe" >
+                                <button style="border-radius:5px;font-size: 10px">Editar</button>  </a>
+                            <a href="{%url 'polls:contratoaccion'  'contratoborrar' cod.id%}#inicio" >
+                                <button style="border-radius:5px;font-size: 10px">Borrar</button>  </a>
+                         </td>                                                 
+                    </tr>
+                {% endfor %}       
+            </table>
+        </div>
+    </div>
+
+    <div class="pagination">
+        {% for pag in paginas %}
+            {% if pag.activa %}
+                <a class="active" href="{%url 'polls:modeloboton1'  'contratotabla' 'codigos' pag.id %}#inicio" >{{pag.id}}</a>
+            {% else %}   
+                <a href="{%url 'polls:modeloboton1'  'contratotabla' 'codigos' pag.id %}#inicio" >{{pag.id}}</a>
+            {% endif %}
+        {% endfor %}       
+    </div>    
+
+</div>  
+
+
+{% endblock %} 
+  

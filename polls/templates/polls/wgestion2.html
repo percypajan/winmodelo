@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/formato.css' %}" />
+
+<style>
+	* {  box-sizing: border-box;}
+	body {  margin: 20px;}
+	@media screen and (max-width: 600px) { .column.menu, .column.side, .column.middle {    width: 100%;  } }
+</style>
+
+	
+	<head>
+
+		
+		<title>Sistema de Gestión Comercial</title>
+		
+		<div id="div1">
+				<ul2>
+					<li2><a href="{% url 'polls:logout' %}">Salir</a></li2>	
+					<li2><a href="{% url 'polls:login' %}">Ingresar</a></li2>		
+					<li2><a href="#AYUDA">Ayuda</a></li2>				
+					<li2><a href="#LIBRERÍA">Librería</a></li2>				
+					<li2><a href="#CALENDARIO">Calendario</a></li2>
+				</ul2>			
+
+		</div>				
+		
+		<div id="div4"> <pre>   SISTEMA DE GESTIÓN COMERCIAL</pre></div>			
+		<div id="div3">		
+				<ul>
+					<li><a href="#HOME">Home</a></li>
+					<li class="dropdown">
+						<a href="javascript:void(0)" class="dropbtn">Módulo</a>
+						<div class="dropdown-content">
+							<a href="{% url 'polls:modelolistar' 0 %}">Modelos de reparto de distribuidoras</a>
+							<a href="#">Clientes Distribuidoras</a>
+							<a href="#">Clientes libres</a>
+						</div>			
+					</li>	
+					<li class="dropdown">
+						<a href="javascript:void(0)" class="dropbtn">Definir</a>
+						<div class="dropdown-content">
+							<a href="#">Link 1</a>
+							<a href="#">Link 2</a>
+							<a href="#">Link 3</a>
+						</div>
+					</li>	
+				<li2><p></p>Usuario:{{login.login}} &nbsp &nbsp</li2>
+				</ul>	
+		
+				<style>
+					.tiledBackground {
+						background-image: url("{% static 'polls/fondo2.jpg' %}");
+						background-size: 100% 100%;
+						color:white;
+						border-radius: 0px 0px 20px 20px;
+					  }
+				</style>	  
+	
+				<div class="tiledBackground">
+					</br></br></br></br></br>
+					<div id="div4"><pre>   Aqui van mensajes informativos</pre> </div>
+					</br></br></br></br></br></br>
+				</div>				
+
+			</p>								
+
+	</head>
+
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<div class="row">
+
+              	<div class="column side">
+					<a id="iniciom"></a>
+					{% block menuopciones %}  {% endblock %}
+    	        </div>
+				
+        	    <div class="column middle">
+					<a id="inicio"></a>
+					{% block login %}           {% endblock %}
+					{% block menumodelos %}     {% endblock %}
+					{% block modeloregistro %}	{% endblock %}
+					{% block modelocontrato %}	{% endblock %}
+					{% block contratomestabla %}{% endblock %}    
+					{% block modelomedicion %}  {% endblock %}					
+					{% block modeloreparto %}   {% endblock %}										
+					{% block modelomensaje %}   {% endblock %}										
+            	</div>
+		
+              	<div class="column side">
+					<a id="inicioe"></a>
+					{% block registroaccion %}	  {% endblock %}
+					{% block contratoaccion %}    {% endblock %}
+					{% block contratomesaccion %} {% endblock %}
+					{% block codigoseleccion %}	  {% endblock %}				
+              	</div>
+
+		</div>
+		<div class="footer">
+			<h4 >Nombre de empresa </h4> 
+				 Direccion: calle xxxx numero yyyy, Distrito.  Teléfono : (511) 000-3918</br>
+				 Centro de atención: <a href="mailto:nombre@hotmail.com.com">nombre@hotmail.com.com</a>
+		</div>
+	
+
+</html>
+

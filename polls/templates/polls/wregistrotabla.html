@@ -1,0 +1,58 @@
+{% extends 'polls/wmodeloregistro.html' %}    
+
+
+{% block registrotabla %}
+<p> {{opcion}}&nbsp&nbsp<a href="{%url 'polls:registroaccion' 'registroagregar' 0 %}#inicioe" >
+        <button style="border-radius:5px;font-size: 12px">Agregar punto</button></a>        
+</p>
+
+<div id="div3">
+    <div id="scrollt">
+        <div style="overflow-x:auto;">
+
+            <table>
+                <tr>    <th>Barra</th> <th>Código</th>    <th>Descripción</th>     <th>Tipo</th>   <th>Modo</th>  
+                        <th>Inicio</th>  <th>Fin</th> <th>Acciones</th> </tr>          
+                {% for cod in codigos %} 
+                    <tr>  <td>{{ cod.barra }}</td> 
+                          <td>{{ cod.nombre }}</td>
+                          <td>{{ cod.descripcion }}</td> 
+                          {% if cod.signo %}
+                                <td>Total</td> 
+                          {%else%}      
+                                <td>Merc.Libre</td> 
+                          {%endif%}      
+                          {%if cod.modo %}
+                            <td>+</td>  
+                          {%else%}  
+                            <td>-</td>  
+                          {%endif%}  
+                          <td>{{ cod.fechaini }}</td>  
+                          <td>{{ cod.fechafin }}</td>  
+                          <td>
+                              <a href="{%url 'polls:registroaccion'  'registroeditar' cod.id%}#inicioe" >
+                                  <button style="border-radius:5px;font-size: 10px">Editar</button>  </a>
+                              <a href="{%url 'polls:registroaccion'  'registroborrar' cod.id%}#inicio" >
+                                  <button style="border-radius:5px;font-size: 10px">Borrar</button>  </a>
+                          </td>
+                    </tr>
+                {% endfor %}       
+            </table>
+        </div>
+    </div>
+
+    <div class="pagination">
+        {% for pag in paginas %}
+            {% if pag.activa %}
+                <a class="active" href="{%url 'polls:modeloboton1'  'registrotabla' 'codigos' pag.id %}#inicio" >{{pag.id}}</a>
+            {% else %}   
+                <a href="{%url 'polls:modeloboton1'  'registrotabla' 'codigos' pag.id %}#inicio" >{{pag.id}}</a>
+            {% endif %}
+        {% endfor %}       
+    </div>    
+
+</div>  
+
+
+{% endblock %} 
+  

@@ -1,0 +1,25 @@
+{% extends 'polls/wmodelosmenu.html' %}    
+
+{% block modeloregistro %}
+
+  <div class="card">   
+    <div class="header"><div id="div3"> Puntos de medición: {{modelo.descripcion}} </div> </div>	  
+  </div>  
+  </br>
+  <a href="{%url 'polls:modeloboton1'  'registrotabla' 'codigos' 1 %}#inicio" >
+    <button class="button buttonazul"  id="btn1" name="btn1"> <span>Medición</span></button>
+  </a>
+
+  <button class="button buttonverde" id="btn4" name="btn4" ><span>Excel</span></button>
+  <button class="button buttonrojo" id="btn5" name="btn5" ><span>PDF</span></button>
+
+  {% block  registrotabla %}
+  {% endblock %}
+
+
+{% endblock %}
+
+       
+
+  
+

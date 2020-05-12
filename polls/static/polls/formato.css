@@ -1,0 +1,530 @@
+<style>
+
+
+.bottomright {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+/******************************* Efecto para <a> *****************************************************
+*             <a href="http://www.google.es/">Permisos</a>
+******************************************************************************************************/
+black {
+  color:black;
+  }
+a {
+    color:#4E63C4;
+    text-decoration:none;
+}
+a:hover {
+    color:#4E5050;
+    background-color:white;
+}
+
+
+/******************************* Efecto para <p> ****************************************************
+*               <p class="normal">Texto</p>
+******************************************************************************************************/
+p {
+   color:#4E5050;
+}
+
+p.b {
+  font: 14px Arial, sans-serif;
+}
+
+p.menu1 {
+  font: 12px Arial, sans-serif;
+}
+p.menu2 {
+  font: 24px Arial, sans-serif;
+}
+p.titulo {
+  font: 48px Arial,sans-serif;
+}
+
+
+
+
+/******************************* Escoger tama�o de letra ************************************************
+*              <h2>This is heading 2</h2>       
+******************************************************************************************************/
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 30px;
+  color: #608486;  
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 15px;
+}
+/********* color  ***************************
+*	<p1>Modelo de reparto</p1>
+**********************************************/	
+p1{
+   color:white
+}
+p4{
+  color:#4E5050
+}
+
+
+/******************************* Tipos de letras especiales *****************************************
+*	<div id="div2"> Sistema de gestion comercial</div>
+****************************************************************************************************/
+#div1 {
+    font-family:"Calibri";
+    font-size:12px;
+    /*font-color:black;*/
+    /*font-weight:bold;*/
+}
+#div2 {
+    font-family:"Calibri";
+    font-size:15px;
+  /*  font-weight:bold;*/
+}
+#div3 {
+    font-family:"Calibri";
+    font-size:14px;
+  /*  font-weight:bold;*/
+}
+#div4 {
+  font-family:"Arial";
+  font-size:25px;
+  /*text-shadow: 1px 1px 2px #000000;*/
+}
+#check {
+  padding: 10px;
+  float:center;
+}
+div.MiLeft {
+  text-align: left;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size:15px;  
+  color:#4E5050;  
+
+}
+/************************************ Ejemplo de sombras para letras ******************************
+*		<sombra>Modelo de reparto</sombra>
+**************************************************************************************************/
+sombra {
+  text-shadow: 2px 2px 4px #000000;
+}
+
+/******************************* Menu horizontal 2 *****************************************************
+*		<ul>
+*  		  <li><a class="active" href="#home">Home</a></li>
+*		  <li><a href="#news">News</a></li>
+*  	  	  <li><a href="#contact">Contact</a></li>
+*		  <li><a href="#about">About</a></li>
+*		</ul>
+*****************************************************************************************************/
+
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: linear-gradient(to bottom, #E8F0F9,#A7C5EC);  /* color fondo menu por defecto */
+        border-radius: 15px 15px 0px 0px;
+      }
+      
+      
+      li {
+        float: left;
+        
+      }
+      
+      li a, .dropbtn {
+        display: inline-block;
+        text-align: center;
+        padding: 10px 30px;
+        text-decoration: none;
+        color:#4E63C4; /*letras del menu por defecto*/
+
+      }
+      
+      li a:hover, .dropdown:hover .dropbtn {
+        color: #4E5050; /* letras del menu seleccionado*/
+        background:  #E8F0F9 ;  /* fondo del menu seleccionado*/
+      }
+      
+      li.dropdown {
+        display: inline-block;
+        
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background:linear-gradient(to bottom right, #E8F0F9,#A7C5EC 80%);  /* fondo submenu */
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 0px 0px 5px 5px;
+
+        
+      }
+      
+      .dropdown-content a {
+        color:#4E63C4; /* letras del submenu por defecto*/
+        padding: 12px 15px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .dropdown-content a:hover     { /* sombreado y letras cdel submenu cuando pasa por ahi*/
+        background-color: #E8F0F9; 
+        color:#4E5050;
+      }
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+
+      ul2 {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;    
+        
+      }
+      li2 {
+        display: inline;
+        float: right;
+        border-right: 1px solid white;
+        
+      }      
+      li2 a {
+        display: block;
+        padding:8px 10px;
+        background: linear-gradient(to bottom, #E8F0F9,#C7C9CB 80%);
+        text-decoration: none;
+        text-align: center;
+        border-radius: 50px 2px;
+        color: #4E63C4; /* letras del menu */  
+      }
+      li2 a:hover {
+        color: #4E5050; /* letras del menu */
+        background-color: #E8F0F9;  /*fondo del menu */
+      }      
+      	
+
+/*********************************** Sobre botones colores y efectos ***************************
+*	<button class="button button5" id="btn4" name="btn4"><span>Boton Black</span></button>
+*	<button class="button button6 disabled" id="btn5" name="btn5"><span>Boton Amarillo</span></button>
+************************************************************************************************/
+.button {
+  background-color: #4CAF50; /* Green */
+  /*border: none;*/
+  color: white;
+  padding: 5px 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.19);
+  transition: all 0.2s;
+  width: 90px;
+}
+.button:hover {
+  box-shadow: 0 3px 7px 0 rgba(0,0,0,0.24),0 7px 12px 0 rgba(0,0,0,0.19);
+}
+
+.buttonazul {background-color: #0A536B;} /* Blue */
+.buttonrojo {background-color: #9C241B;} /* Red */ 
+.buttonnegro {background-color: #555555;} /* Black */
+.buttonamarillo {background-color: #DEA71E;} /* Amarillo */
+.buttonverde {background-color: #35581D;} /* Verde */
+.buttonlila  {background-color: #5F3C6D;} /* Verde */
+
+
+.btn-grad {background-image: linear-gradient(to right, #EB3349 0%, #F45C43 51%, #EB3349 100%)}
+.btn-grad:hover { background-position: right center; }
+
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/*div {
+  padding: 15px;
+}*/
+/************************* Cambiar tonalidades ***************************
+*             <div id="grad1"></div>
+**************************************************************************/
+#grad1 {
+   height: 200px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, red, yellow); /* Standard syntax (must be last) */
+}
+
+
+
+/************************* Paginacion *************************************
+*<div class="pagination">
+*  <a href="#">&laquo;</a>
+*  <a href="#">1</a>
+*  <a class="active" href="#">2</a>
+*  <a href="#">3</a>    <a href="#">4</a>    <a href="#">5</a>   <a href="#">6</a>   <a href="#">&raquo;</a>
+*</div>
+**************************************************************************/
+.pagination {
+  display: inline-block;
+  float: right;
+}
+
+.pagination a {
+  color: #5F5C5C;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #CCC6C5;
+  color: #5F5C5C;
+  border: 1px solid #CCC6C5;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/********************************* Tablas ********************************************
+*<table>
+*  <tr>    <th>Firstname</th>    <th>Lastname</th>    <th>Savings</th>  </tr>
+*  <tr>    <td>Peter</td>        <td>Griffin</td>      <td>$100</td>  </tr>
+*</table>
+**************************************************************************************/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  height:50px;
+/*  overflow-y: auto;     Trigger vertical scroll    */
+}
+
+th, td {
+  text-align: left;
+  padding: 2px 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even)  { /* impares */
+  /*background-color: #f2f2f2*/
+  /*background-color: #EDE8E8;*/
+  background-color: white;
+}
+
+th { /*cabecera*/
+/*  background-color: #4CAF50;*/
+  background-color:#D0CACA;
+    color: black;
+}
+
+/************ Con scroll ************
+* <div id="scroll">
+*          <table border="1">
+*              <tr><td>1</td><td>2</td> ..
+*          </table>
+* </div>
+********************************************/
+
+#scrollt {
+     overflow:scroll;
+     height:auto;
+     width:100%;
+}
+#scrollt table {
+    width:100%;
+    /*background-color:lightgray; */
+    background-color:#f2f2f2;
+    padding:5px;
+    
+}
+
+#scrollt2 {
+  overflow:scroll;
+  height:250px;
+  width:100%;
+}
+#scrollt2 table {
+ width:100%;
+ background-color:lightgray; /* color por defecto tablas */
+ padding:2px;
+}
+
+#scrollt3 {
+  overflow:scroll;
+  height:150px;
+  width:100%;
+}
+#scrollt3 table {
+ width:100%;
+ background-color:lightgray; /* color por defecto tablas */
+ padding:2px;
+}
+
+/********************************* posicion de imagenes ***************************
+* <p><img src="pineapple.jpg" alt="Pineapple" style="width:170px;height:170px;margin-right:15px;">
+*    Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+**************************************************************************************/
+img {
+  float: center;
+}
+
+
+
+
+/************************** WEBSITDE LAYOUT ******************************************
+   3 columnas 25, 50 y resto%
+**************************************************************************************/
+.column {
+  float: left;
+}
+
+
+.column.side {
+  width: 15%;
+  background-color: white;
+  padding: 10px;
+}
+
+/* Middle column */
+.column.middle {
+  width: 70%;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  background-color: white;
+  padding: 10px;
+}
+/* Fake image */
+.fakeimg {
+  background-color: #f1f1f1;
+  /*width: 100%;*/
+  padding: 20px;
+}
+/* Add a card effect for articles */
+div.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 10px;
+  padding:0px;
+  
+}
+div.header {
+  background: linear-gradient(to bottom, #E8F0F9,#C7C9CB 10%); /* fondo de card*/
+  color: #4E5050;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+div.card2 {
+/*  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+  text-align: center;
+  border-radius: 50px 50px 30px 30px;
+  width: 220px;  
+  float: left;  
+  border: 10px solid ;  
+  border-color: white;
+  background: linear-gradient(to bottom,rgb(243, 234, 133) 80%,rgb(204, 194, 84) ); /* fondo de card*/
+}
+div.header2 {
+  background: linear-gradient(to bottom, #E8F0F9,rgb(45, 111, 177) 10%); /* fondo de card*/
+  /*color: rgb(118, 233, 233);*/
+  color:rgb(207, 215, 224);
+  padding: 20px;
+  font-size: 15px;
+  border-radius: 30px 30px 0px 0px;
+  width: 100%;    
+}
+
+div.container {
+  padding: 10px;
+}
+
+/***************************** galeria de fotos ************************/
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+
+.footer {
+  background-color: white;
+  text-align: center;
+
+  bottom: 0;
+  width: 100%;
+  border: 0px solid ;
+
+  color:#4E63C4;
+  
+  }  
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+/*@media screen and (max-width: 600px) {
+  .menu, .column.side, .column.middle {
+    width: 100%;
+  }
+}*/
+
+#border1 {
+  box-sizing: content-box;  
+  width: 90%;
+  height: auto;
+  padding: 40px;  
+  align-content: center;
+  border: 10px solid white;
+}
+
+
+
+
+</style>
+
+

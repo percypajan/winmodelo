@@ -1,0 +1,37 @@
+{% extends 'polls/wmodelosmenu.html' %}    
+
+{% block modelomedicion %}
+
+  <div class="card">   
+    <div class="header"><div id="div3"> Registros: {{modelo.descripcion}} </div> </div>	  
+  </div>  
+  </br>
+
+  <a href="{%url 'polls:modeloboton2'  'medicioncarga' 'codigos' 1 %}#inicio" >
+    <button class="button buttonazul"  id="btn2" name="btn2"> <span>Medición</span></button>
+  </a>
+   
+  <a href="{%url 'polls:modeloboton2'  'librecarga' 'codigos' 1%}#inicio" >
+    <button class="button buttonamarillo"  id="btn3" name="btn3"> <span>C. Libres</span></button>
+  </a>
+  <a href="{%url 'polls:modeloboton3'  'registrografico' 1%}#inicio" >
+    <button class="button buttonnegro"  id="btn6" name="btn6"> <span>Graficar</span></button>
+  </a>
+  <button class="button buttonverde" id="btn4" name="btn4" ><span>Excel</span></button>
+  <button class="button buttonrojo" id="btn5" name="btn5" ><span>PDF</span></button>
+
+  {% block  mediciontabla %}
+  {% endblock %}
+  {% block  libretabla %}
+  {% endblock %}
+
+  {% block mediciongrafico %}
+  {% endblock %}
+  {% block registrografico %}
+  {% endblock %}
+{% endblock %}
+
+       
+
+  
+

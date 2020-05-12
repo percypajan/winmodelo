@@ -1,0 +1,114 @@
+{% extends 'polls/wmodeloreparto.html' %}    
+
+{% block repartoreporte %}
+
+<form action="{% url 'polls:repartocalculo' 'reporte' 1%}#inicio" method="POST" enctype="multipart/form-data">  
+    {% csrf_token %}   
+    </br>
+
+    Periodo: 
+    <select name="periodo2">
+        {% for pp in periodo %}
+            {%if pp.seleccionado %}
+                <option value="{{pp.per.id}}" selected> {{pp.per.descripcion}}  </option>
+            {% else %}    
+                <option value="{{pp.per.id}}"> {{pp.per.descripcion}}  </option>
+            {% endif %}
+        {% endfor %}
+    </select>              
+    Mercado:
+    <select name="mercado2">
+        {% for v in mercado %}
+          {%if v.ver%} 
+            {%if v.seleccionado %}
+                <option value="{{v.id}}" selected> {{v.opcion}}  </option>
+            {% else %}    
+                <option value="{{v.id}}"> {{v.opcion}}  </option>
+            {% endif %}
+           {% endif %}  
+        {% endfor %}           
+    </select>   
+    Tipo:     
+    <select name="tipo2">
+        {% for v in tipo %}
+          {%if v.ver%}       
+            {%if v.seleccionado %}
+                <option value="{{v.id}}" selected> {{v.opcion}}  </option>
+            {% else %}    
+                <option value="{{v.id}}"> {{v.opcion}}  </option>
+            {% endif %}
+           {% endif %}  
+        {% endfor %}           
+    </select>      
+    Agrupar por:     
+    <select name="agrupacion2">
+        {% for v in agrupacion %}
+          {%if v.ver%}       
+            {%if v.seleccionado %}
+                <option value="{{v.id}}" selected> {{v.opcion}}  </option>
+            {% else %}    
+                <option value="{{v.id}}"> {{v.opcion}}  </option>
+            {% endif %}
+          {% endif %}  
+        {% endfor %}           
+    </select> 
+   
+    Concepto:            
+    <select name="valor2">
+        {% for v in valor %}
+          {%if v.ver%}
+            {%if v.seleccionado %}
+                <option value="{{v.id}}" selected> {{v.opcion}}  </option>
+            {% else %}    
+                <option value="{{v.id}}"> {{v.opcion}}  </option>
+            {% endif %}
+           {% endif %}  
+        {% endfor %}           
+    </select>                 
+    </br>
+    </br>    
+    <input type="submit" style="border-radius:5px;font-size: 14px" value="Reporte">    </br>
+  </form>   
+</br>
+{{mensaje}}
+<div id="div3">
+    <div id="scrollt">
+        <div style="overflow-x:auto;">
+
+            <table>
+                <tr>  
+                    {%for col in titulo%}
+                        <th>{{col}}</th> 
+                    {%endfor%}
+                </tr>                     
+                                          
+                {%for col in data%}
+                    <tr>
+                        {%for subcol in col%}
+                            {% if subcol.izq %}
+                                <td>{{subcol.valor}}</td> 
+                            {% else %}    
+                                <td style="text-align:right">{{ subcol.valor }}</td>              
+                            {% endif %}    
+                        {%endfor%}
+                    </tr>    
+                {%endfor%}    
+                
+
+                
+            </table>
+        </div>
+    </div>
+</div>   
+
+<div class="pagination">
+    {% for pag in paginas %}
+        {% if pag.activa %}
+            <a class="active" href="{%url 'polls:repartocalculo'  'reporte' pag.id %}#inicio" >{{pag.id}}</a>
+        {% else %}   
+            <a href="{%url 'polls:repartocalculo' 'reporte'  pag.id %}#inicio" >{{pag.id}}</a>
+        {% endif %}
+    {% endfor %}       
+</div>    
+ 
+{% endblock %} 

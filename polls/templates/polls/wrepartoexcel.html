@@ -1,0 +1,67 @@
+{% extends 'polls/wmodeloreparto.html' %}    
+
+{% block repartoreporte %}
+
+<form action="{% url 'polls:repartoexcel' 'mes' 1%}#inicio" method="POST" enctype="multipart/form-data">  
+    {% csrf_token %}   
+    </br>
+
+    Periodo: 
+    <select name="periodo2">
+        {% for pp in periodo %}
+            {%if pp.seleccionado %}
+                <option value="{{pp.per.id}}" selected> {{pp.per.descripcion}}  </option>
+            {% else %}    
+                <option value="{{pp.per.id}}"> {{pp.per.descripcion}}  </option>
+            {% endif %}
+        {% endfor %}
+    </select>              
+    Mercado:
+    <select name="mercado2">
+        {% for v in mercado %}
+          {%if v.ver%}
+            {%if v.seleccionado %}
+                <option value="{{v.id}}" selected> {{v.opcion}}  </option>
+            {% else %}    
+                <option value="{{v.id}}"> {{v.opcion}}  </option>
+            {% endif %}
+          {% endif %}  
+        {% endfor %}           
+    </select>   
+ 
+    Tipo:     
+    <select name="tipo2">
+        {% for v in tipo %}
+         {%if v.ver%}
+            {%if v.seleccionado %}
+                <option value="{{v.id}}" selected> {{v.opcion}}  </option>
+            {% else %}    
+                <option value="{{v.id}}"> {{v.opcion}}  </option>
+            {% endif %}
+          {%endif%}  
+        {% endfor %}           
+    </select>      
+    Barras:     
+    <select name="barra2">
+        {% for v in barra %}
+          {%if v.ver%}       
+            {%if v.seleccionado %}
+                <option value="{{v.id}}" selected> {{v.opcion}}  </option>
+            {% else %}    
+                <option value="{{v.id}}"> {{v.opcion}}  </option>
+            {% endif %}
+          {% endif %}  
+        {% endfor %}           
+    </select>       
+
+    </br>
+    </br>    
+    <input type="submit" style="border-radius:5px;font-size: 14px" value="Reporte">    </br>
+  </form>   
+</br>
+
+
+
+
+ 
+{% endblock %} 

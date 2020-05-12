@@ -1,0 +1,34 @@
+{% extends 'polls/wmodelosmenu.html' %}    
+
+{% block modeloreparto %}
+
+  <div class="card">   
+    <div class="header"><div id="div3"> Reparto: {{modelo.descripcion}} </div> </div>	  
+  </div>  
+  </br>
+
+  <a href="{%url 'polls:repartocalculo'  'calculo' 1 %}#inicio" >
+    <button class="button buttonazul"  id="btn2" name="btn2"> <span>Cálculo</span></button>
+  </a>
+  <a href="{%url 'polls:repartocalculo'  'reporte' 1 %}#inicio" >
+    <button class="button buttonamarillo"  id="btn2" name="btn2"> <span>Reporte</span></button>
+  </a>
+  <a href="{%url 'polls:repartografico'  'mes' 1%}#inicio" >
+    <button class="button buttonnegro"  id="btn6" name="btn6"> <span>Grafico</span></button>
+  </a>
+
+  <a href="{%url 'polls:repartoexcel'  'mes' 1%}#inicio" >
+  <button class="button buttonverde" id="btn4" name="btn4" ><span>Excel</span></button>
+  </a>
+
+  <a href="{%url 'polls:repartopdf' %}#inicio" target="_new">
+    <button class="button buttonrojo" id="btn5" name="btn5" ><span>PDF</span></button>
+  </a>    
+
+  {% block repartotabla %}          {% endblock %}  
+  {% block repartoreporte %}        {% endblock %}		     
+  {% block repartograficomes %}     {% endblock %}
+  
+{% endblock %}
+  
+

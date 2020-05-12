@@ -1,0 +1,23 @@
+{% extends 'polls/wcontratotabla.html' %}    
+
+
+
+{% block contratoaccion %}
+
+    {%if edita %}
+    <div class="card">
+        <div class="header">  Acciones </div>
+        <div id="div2">
+            <form method="POST" class="codigo-form">{%csrf_token %}
+                {{formcontrato.as_p}}
+
+                <button type="submit" name="ok">Confirmar</button>
+                <button type="submit" name="cancel">Cancelar</button>
+            </form>
+        </div>           
+        </br>        
+    </div>   
+
+    {%endif%}
+{% endblock %} 
+  

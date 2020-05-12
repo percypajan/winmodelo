@@ -1,0 +1,61 @@
+{% extends 'polls/wmodelocontrato.html' %}    
+
+
+{% block contratoeditar %}
+
+    </br> </br> 
+
+            <form action="{% url 'polls:modeloboton4' 'contratoeditar' 1 %}#inicio" method="POST" enctype="multipart/form-data">  
+                {% csrf_token %}   
+             
+
+                Licitación: 
+                <select name="licitacion2">
+                {% for con in licitacion %}
+                    {%if con.seleccionado %}
+                        <option value="{{con.id}}" selected> {{con.opcion}}  </option>
+                    {% else %}    
+                        <option value="{{con.id}}"> {{con.opcion}}  </option>
+                    {% endif %}
+                {%endfor%}    
+                </select>      
+
+                Bilateral:
+                <select name="bilateral2">
+                    {% for con in bilateral %}
+                        {%if con.seleccionado %}
+                            <option value="{{con.id}}" selected> {{con.opcion}}  </option>
+                        {% else %}    
+                            <option value="{{con.id}}"> {{con.opcion}}  </option>
+                        {% endif %}
+                    {%endfor%}    
+                </select>      
+
+               Clientes Libres:
+                <select name="otros2">
+                    {% for con in otros %}
+                        {%if con.seleccionado %}
+                            <option value="{{con.id}}" selected> {{con.opcion}}  </option>
+                        {% else %}    
+                            <option value="{{con.id}}"> {{con.opcion}}  </option>
+                        {% endif %}
+                    {%endfor%}    
+                    </select>      
+                </br>        
+                Tipo: 
+                <select name="tipo2">
+                    {% for op in opcion %}
+                        {%if op.seleccionado %}
+                            <option value="{{op.id}}" selected> {{op.opcion}}  </option>
+                        {% else %}    
+                            <option value="{{op.id}}"> {{op.opcion}}  </option>
+                        {% endif %}
+                    {%endfor%}                       
+                </select>   
+                <input type="submit" style="border-radius:5px;font-size: 14px" value="Visualizar">    
+            </form>             
+
+{% endblock %} 
+
+
+

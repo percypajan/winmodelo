@@ -87,7 +87,7 @@ class Miusuario:
             self.login=loginx
             self.ok=True
 
-milogin=Miusuario('anonimo','xxx')            
+milogin=''#Miusuario('anonimo','xxx')            
 
 
 class Pagina:

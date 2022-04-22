@@ -77,7 +77,7 @@ pyinstaller==4.0.dev0+03d42a2a25
 pylint==2.4.4
 pyodbc==4.0.30
 pyparsing==2.4.6
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 Pyphen==0.9.5
 python-dateutil==2.8.1
 pythonanywhere==0.9.1

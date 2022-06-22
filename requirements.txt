@@ -59,7 +59,7 @@ matplotlib==3.2.1
 mccabe==0.6.1
 mysql-connector-python==8.0.19
 mysqlclient==1.4.6
-numpy==1.18.2
+numpy==1.22.0
 openpyxl==3.0.3
 optcc==4
 pandas==1.0.3
